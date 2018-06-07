@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get"/users/profile" => "users#show"
+  get "/users/profile" => "users#show"
 
   devise_for :users
 

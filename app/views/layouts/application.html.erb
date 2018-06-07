@@ -10,19 +10,25 @@
   </head>
 
   <body>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <a href="/">Home</a>
+    <br>
     <% if user_signed_in? %>
-      Logged in User: <%= current_user.email %> <%= current_user.firstname %> <%= current_user.lastname %>
+      Logged in User<br> 
+      <b>Email: </b><%= current_user.email %><br>
+      <b>ID: </b><%= current_user.id %> 
       <br>
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+      <a href="/users/edit"><b>Edit User</a>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></b>
+      <br>
+      <a href="/posts/new">New Post</a>
     <% else %>
      <a href="/users/sign_in">Sign In</a>
-     
-    
+     <a href="/users/sign_up">Sign Up</a>
    <% end %>
-
-
+   
     <%= yield %>
   </body>
 </html>

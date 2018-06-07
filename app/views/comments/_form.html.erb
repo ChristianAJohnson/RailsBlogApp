@@ -1,0 +1,8 @@
+<h2>Create a new Comment</h2>
+<br>
+ <%= form_for @comment do |f| %>
+Title: <%= f.text_field :title %>
+Content: <%= f.text_field :content %>
+<%= hidden_field_tag :post_id, @post.id %>
+<%= f.submit "Create A Comment" %>
+<% end %>
