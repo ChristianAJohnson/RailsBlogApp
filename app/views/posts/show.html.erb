@@ -1,2 +1,43 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<!-- <h1>Posts#show</h1>
+<p>Find me in app/views/posts/show.html.erb</p> -->
+
+<h3>Post</h3>
+
+<b>Title: </b> <%= @post.title %>
+ <br>
+ <b>Content: </b> <%= @post.content %>
+ <br>
+ <b>Creator: </b> <%= @post.user.email %>
+ <br>
+ <b>User Id: </b><%= @post.user_id %>
+ <br>
+ <b>Post Id: </b><%= @post.id %>
+ <br>
+
+
+<h2>Show Comments:</h2>
+<% @post.comments.each do |p| %>
+<b>Title:</b> <%= p.title %> <br>
+<b>Comment:</b> <%= p.content %><br>
+<b>Commentor:</b> <%= p.user.email %>
+<% end %>
+
+<br>
+<br>
+<!-- <a href="/comments/new">Comment on Post</a> -->
+
+<h2>Create a new Comment</h2>
+<br>
+ <%= form_for @comment do |f| %>
+Title: <%= f.text_field :title %>
+Content: <%= f.text_field :content %>
+<%= hidden_field_tag :post_id, @post.id %>
+<%= f.submit "Create A Comment" %>
+<% end %>
+
+
+
+
+
+
+
