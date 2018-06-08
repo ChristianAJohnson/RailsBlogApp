@@ -9,8 +9,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id 
-    p= Post.find(params[:post_id])
-    @comment.post_id = p
+    @comment.post_id = Post.find(params[:post_id])
     if @comment.save
       redirect_to "/posts/<%= p.id %>"
     else
