@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+You can use this default account to test it out:
+
+U: caj@aol.com
+P: abc123
