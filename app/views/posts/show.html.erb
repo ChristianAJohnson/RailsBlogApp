@@ -14,10 +14,10 @@
  <b>Post Id: </b><%= @post.id %>
  <br>
 
- 
-
+<%= link_to "Edit Post", edit_post_path %>
+<br>
 <%= link_to "Delete Post", post_path, method: :delete, data: {confirm: 'Are you sure you want to delete this post?'} %>
-
+<br>
 
 <h2>Show Comments:</h2>
 <% @post.comments.each do |p| %>

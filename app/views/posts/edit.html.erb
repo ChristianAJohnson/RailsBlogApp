@@ -2,4 +2,10 @@
 <p>Find me in app/views/posts/edit.html.erb</p>
  -->
 
- 
+  <h2>Edit a Post</h2>
+<br>
+ <%= form_for @post do |f| %>
+Title: <%= f.text_field :title %>
+Content: <%= f.text_area :content %>
+<%= f.submit "Edit A Post" %>
+<% end %>
