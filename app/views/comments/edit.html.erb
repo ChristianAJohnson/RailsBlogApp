@@ -1,2 +1,13 @@
-<h1>Comments#edit</h1>
+<!-- <h1>Comments#edit</h1>
 <p>Find me in app/views/comments/edit.html.erb</p>
+ -->
+<br>
+<br>
+<h2>Edit The Comment</h2>
+<%= form_for @comment do |f| %>
+Title: <%= f.text_field :title %>
+Content: <%= f.text_field :content %>
+<%= f.submit "Edit A Comment" %>
+<% end %>
+
+

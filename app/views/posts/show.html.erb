@@ -29,25 +29,23 @@
 <% @post.comments.each do |p| %>
 <b>Title:</b> <%= p.title %> <br>
 <b>Comment:</b> <%= p.content %><br>
+<b>Comment ID:</b> <%= p.id %><br>
 <b>Commentor:</b> <%= p.user.email %><br>
+<a href="/comments/<%= p.id %>/edit"> Edit Comment </a>
 <hr>
 <% end %>
-
-<br>
-<br>
 <!-- <a href="/comments/new">Comment on Post</a> -->
 
 
 <% if user_signed_in? %>
-<h2>Comment on this Post</h2>
-<br>
- <%= form_for @comment do |f| %>
-Title: <%= f.text_field :title %>
-Content: <%= f.text_field :content %>
-
-<%= hidden_field_tag :post_id, @post.id %>
-<%= f.submit "Create A Comment" %>
-<% end %>
+	<h2>Comment on this Post</h2>
+	<br>
+ 	<%= form_for @comment do |f| %>
+	Title: <%= f.text_field :title %>
+	Content: <%= f.text_field :content %>
+	<%= hidden_field_tag :post_id, @post.id %>
+	<%= f.submit "Create A Comment" %>
+	<% end %>
 <% else %>
    <b> You must login before you can make comments to posts! </b>
 <% end %>
