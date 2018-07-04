@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def show
@@ -35,7 +36,11 @@ class PostsController < ApplicationController
     # end
   end
 
-
+def destroy
+  post = Post.find(params[:id])
+  post.destroy
+  redirect_to "/"
+end
 
 private
 	def post_params
