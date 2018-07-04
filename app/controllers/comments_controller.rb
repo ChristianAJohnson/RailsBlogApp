@@ -24,18 +24,23 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
-def update
-    comment = Comment.find(params[:id])
+  def update
+    comment.post_id = params[:post_id]
     if(comment.update(comment_params))
       redirect_to "/posts/#{params[:post_id]}"
     else 
       render edit_comment_path
     end
-end
+  end
 
   def show
   end
 
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+    redirect_to "/posts/#{params[:post_id]}"
+  end
 
 private
 	def comment_params

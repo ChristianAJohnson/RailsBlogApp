@@ -9,5 +9,7 @@ Title: <%= f.text_field :title %>
 Content: <%= f.text_field :content %>
 <%= f.submit "Edit A Comment" %>
 <% end %>
+<br>
+<%= link_to "Delete This Comment", comment_path, method: :delete, data: {confirm: 'Are you sure you want to delete this comment?'} %>
 
 
