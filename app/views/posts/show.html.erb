@@ -14,33 +14,41 @@
  <b>Post Id: </b><%= @post.id %>
  <br>
 
+
+<% if user_signed_in? %>
 <%= link_to "Edit Post", edit_post_path %>
 <br>
 <%= link_to "Delete Post", post_path, method: :delete, data: {confirm: 'Are you sure you want to delete this post?'} %>
 <br>
+<% else %>
+<br>
+<b>You must sign in before you can edit or delete posts!</b>
+<% end %>
 
 <h2>Show Comments:</h2>
 <% @post.comments.each do |p| %>
 <b>Title:</b> <%= p.title %> <br>
 <b>Comment:</b> <%= p.content %><br>
+<b>Comment ID:</b> <%= p.id %><br>
 <b>Commentor:</b> <%= p.user.email %><br>
+<a href="/comments/<%= p.id %>/edit"> Edit Comment </a>
 <hr>
 <% end %>
-
-<br>
-<br>
 <!-- <a href="/comments/new">Comment on Post</a> -->
 
-<h2>Comment on this Post</h2>
-<br>
- <%= form_for @comment do |f| %>
-Title: <%= f.text_field :title %>
-Content: <%= f.text_field :content %>
 
-<%= hidden_field_tag :post_id, @post.id %>
-<%= f.submit "Create A Comment" %>
+<% if user_signed_in? %>
+	<h2>Comment on this Post</h2>
+	<br>
+ 	<%= form_for @comment do |f| %>
+	Title: <%= f.text_field :title %>
+	Content: <%= f.text_field :content %>
+	<%= hidden_field_tag :post_id, @post.id %>
+	<%= f.submit "Create A Comment" %>
+	<% end %>
+<% else %>
+   <b> You must login before you can make comments to posts! </b>
 <% end %>
-
 
 
 
