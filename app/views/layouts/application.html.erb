@@ -16,13 +16,16 @@
     <a href="/">Home</a>
     <br>
     <% if user_signed_in? %>
-      Logged in User<br> 
-      <b>Email: </b><%= current_user.email %><br>
-      <b>ID: </b><%= current_user.id %> 
+      Current User: 
+      <b>
+      <a href="/users/edit">
+      <%= current_user.email %>
+      </b>
+      </a>
+      <!-- <b>ID: </b><#%= current_user.id %>  -->
       <br>
-      <a href="/users/edit"><b>Edit User</a>
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></b>
-      <br>
+      <br><br>
       <a href="/posts/new">New Post</a>
     <% else %>
      <a href="/users/sign_in">Sign In</a>
