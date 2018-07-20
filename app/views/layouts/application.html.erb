@@ -21,8 +21,9 @@
       <b>ID: </b><%= current_user.id %> 
       <br>
       <a href="/users/edit"><b>Edit User</a>
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></b>
       <br>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></b>
+      <br><br>
       <a href="/posts/new">New Post</a>
     <% else %>
      <a href="/users/sign_in">Sign In</a>
